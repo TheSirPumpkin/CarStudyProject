@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1f7c808eaddf1c4883ffc10523a627d, type: 3}
+  m_Name: Volkswagn
+  m_EditorClassIdentifier: 
+  Equipment: 0
+  Brand: 5
+  Drive: 1
+  EngineType: 2
+  EnginePower: 80
+  FuelTankCapactiy: 60
+  Cost: 1000
+  ReleaseYear: 1988
+  Weight: 1600
+  SittingPlaces: 2
+  Prefab: {fileID: 8908288426541414933, guid: b58a349f2b3dc1d44b483d9fccb00b0f, type: 3}
