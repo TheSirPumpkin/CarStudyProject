@@ -1,42 +1,31 @@
-﻿using Scriptables;
-using System;
-using UnityEngine;
+﻿using System.Linq;
+using Scriptables;
 
 namespace EngineTypes
 {
-    public abstract class Engine// <T:IFuel>
+    public abstract class Engine : IEngine //все контракты вынести в интерфейс
     {
-        public IFuel[] Fuels;
-        public float Power;
-        public float FuelTankCapactiy;
+        public IFuel[] Fuels; //это должно быть свойством в наследниках, а здесь только абстрактно объявить
+        public float Power; //мощность двигателя просто так не меняется, так что это должно быть свойство
+        public float FuelTankCapacity; // количество топлива не относится к характеристикам двигателя, это должно быть в отдельной переменной в машине,
+                                       // а сюда можешь просто инжектить ссылку на компонент который лежит в машине
 
         public Engine(CarSpecifications carSpecifications, params IFuel[] fuels)
         {
-            this.FuelTankCapactiy = carSpecifications.FuelTankCapactiy;
-            this.Power = carSpecifications.EnginePower;
-            this.Fuels = fuels;
+            FuelTankCapacity = carSpecifications.FuelTankCapactiy;
+            Power = carSpecifications.EnginePower;
+            Fuels = fuels;
         }
-        public virtual void StartEngine()
-        {
 
-        }
-        public virtual void RunEngine()
-        {
+        public abstract void StartEngine();//в чем отличие Run и Start?
 
-        }
-        public virtual void StopEngine()
-        {
+        public abstract void RunEngine();//в чем отличие Run и Start?
 
-        }
+        public abstract void StopEngine();
 
         public string GetFuelType()
         {
-            string fuelType = "";
-            foreach (var type in Fuels)
-            {
-                fuelType += " " + type.ToString();
-            }
-            return fuelType;
+            return Fuels.Aggregate("", (current, type) => current + (" " + type.ToString()));
         }
     }
 }

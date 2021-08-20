@@ -1,47 +1,54 @@
 ﻿using CarInterfaces;
-using Scriptables;
-using UnityEngine;
-using System;
 using EngineTypes;
+using Scriptables;
+using System;
+using UnityEngine;
 using static Enums.CarEnums;
 
 //ADD NAMESPACE
 [Serializable]
-public class Car : IVehicle
+public class Car : IVehicle, IBuyable //интерфейс "покупаемый" стоит добавить прямо сюда
 {
+    public Engine Engine { get; private set; }
     public int ReleaseYear { get; private set; }
     public bool EngineStarted { get; private set; }
-    public bool BrandSet { get; private set; }
     public float Weight { get; private set; }
     public int SittingPlaces { get; private set; }
-    public Engine Engine { get; private set; }
     public bool IsMoving { get; set; }
     public CarType Type { get; private set; }
 
-    Vector3 IVehicle.GetCurrentMovementVector => throw new NotImplementedException();
+    public readonly CarBrand Brand;
 
-    readonly private CarBrand brand;
+    Vector3 IVehicle.GetCurrentMovementVector => throw new NotImplementedException();
 
     private CarEquipment equipment;
     private CarDrive drive;
-   
 
-    public Car(CarSpecifications specifications, Engine engine)
+    public Car(CarSpecifications specifications)
     {
-        this.equipment = specifications.Equipment;
-        this.brand = specifications.Brand;
-        this.drive = specifications.Drive;
-        this.ReleaseYear = specifications.ReleaseYear;
-        this.Weight = specifications.Weight;
-        this.SittingPlaces = specifications.SittingPlaces;
-        this.Engine = engine;
-        this.Type = SetCarType();
+        equipment = specifications.Equipment;
+        Brand = specifications.Brand;
+        drive = specifications.Drive;
+        ReleaseYear = specifications.ReleaseYear;
+        Weight = specifications.Weight;
+        SittingPlaces = specifications.SittingPlaces;
+        Engine = EngineFactory.GetEngine(specifications.EngineType); //двигатель должен получаться с фабрики
+        Type = SetCarType();
+    }
+
+    public class EngineFactory : IFactory<IEngine> //примерно то как должна выглядеть фабрика, только нужно перенести все в отдельный класс
+    {
+        public static Engine GetEngine(EngineType specificationsEngineType)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public void EngineStart()
     {
         Engine.StartEngine();
     }
+
     public void Move()
     {
         if (EngineStarted)
@@ -49,11 +56,11 @@ public class Car : IVehicle
             // use CarMover class
         }
     }
+
     public void EngineStop()
     {
         EngineStarted = false;
     }
-
 
     public Vector3 GetCurrentMovementVector()
     {
@@ -63,7 +70,7 @@ public class Car : IVehicle
 
     private CarType SetCarType()
     {
-        if (Weight <= 3500 && SittingPlaces <= 8 && equipment == CarEquipment.Stock)//serialized for magic numbers
+        if (Weight <= 3500 && SittingPlaces <= 8 && equipment == CarEquipment.Stock) //serialized for magic numbers
         {
             return CarType.Road;
         }
@@ -87,6 +94,16 @@ public class Car : IVehicle
 
     public void Stop()
     {
-        
     }
+    public float Cost { get; set; }
+    public void Buy(float money)
+    {
+        throw new NotImplementedException();
+    }
+}
+public interface IEngine
+{
+}
+public interface IFactory<T>
+{
 }

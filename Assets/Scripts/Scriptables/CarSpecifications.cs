@@ -1,9 +1,9 @@
-﻿using System;
-using UnityEngine;
-using static Enums.CarEnums;
+﻿using UnityEngine;
 
 namespace Scriptables
 {
+    using static Enums.CarEnums;
+
     [CreateAssetMenu(fileName = "CarSpecifications", menuName = "CarData/CarSpecifications")]
     public class CarSpecifications : ScriptableObject
     {
@@ -28,6 +28,5 @@ namespace Scriptables
         public int SittingPlaces;
 
         public GameObject Prefab;
-      
     }
 }

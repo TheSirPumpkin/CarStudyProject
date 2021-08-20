@@ -18,14 +18,17 @@ public class CarCreateButton : MonoBehaviour
         }
         CreateButton.onClick.AddListener(CreateCar);
     }
+
     private void OnDisable()
     {
         CreateButton.onClick.RemoveAllListeners();
     }
+
     private void Start()
     {
         ButtonName.text = $"{Specifications.Brand}";
     }
+
     private void CreateCar()
     {
         EventManager.Events.InvokeCarCreateEvent(Specifications);

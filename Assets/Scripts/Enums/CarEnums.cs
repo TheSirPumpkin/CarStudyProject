@@ -7,6 +7,7 @@
             Stock,
             Racing
         };
+
         public enum CarType
         {
             Empty,
@@ -15,6 +16,7 @@
             Truck,
             Bus
         };
+
         public enum CarBrand
         {
             Ferrari,
@@ -24,6 +26,7 @@
             BMW,
             Volkswagen
         };
+
         public enum CarDrive
         {
             Full,

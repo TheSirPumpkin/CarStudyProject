@@ -1,4 +1,3 @@
-﻿public interface IFuel 
+﻿public interface IFuel
 {
-
 }

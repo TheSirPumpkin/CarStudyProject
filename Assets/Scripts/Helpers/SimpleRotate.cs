@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Helpers
 {
@@ -8,7 +6,7 @@ namespace Helpers
     {
         public float xAngle, yAngle, zAngle;
 
-        void Update()
+        private void Update()
         {
             transform.Rotate(xAngle, yAngle, zAngle, Space.Self);
         }

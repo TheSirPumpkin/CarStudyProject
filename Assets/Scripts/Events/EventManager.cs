@@ -8,6 +8,7 @@ namespace CarEvents
         public static EventManager Events => instance ?? (instance = new EventManager());
 
         public delegate void CreateCar(CarSpecifications carSpecifications);
+
         public event CreateCar CarCreate;
 
         public void InvokeCarCreateEvent(CarSpecifications carSpecifications)

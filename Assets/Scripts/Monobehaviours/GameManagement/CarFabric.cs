@@ -1,5 +1,4 @@
-﻿using System;
-using CarEvents;
+﻿using CarEvents;
 using EngineTypes;
 using FuelTypes;
 using Scriptables;
@@ -8,20 +7,22 @@ using static Enums.CarEnums;
 
 namespace Monobehaviours.GameManagement
 {
-    public class CarFabric : MonoBehaviour
+    public class CarFabric : MonoBehaviour //что это за фабрика, которая имеет внутренний автомобиль? В целом почитай про паттерн "фабрика"
     {
         public Vector3 SpawnPosition = default;
         public Transform CarParent = default;
-        private GameObject currentCar = default;
+        private GameObject currentCar = default;//это что? Дефолтный автомобиль? Зачем он напрямую лежит в фабрике?
 
         private void OnEnable()
         {
             EventManager.Events.CarCreate += CreateCar;
         }
+
         private void OnDestroy()
         {
             EventManager.Events.CarCreate -= CreateCar;
         }
+
         public void CreateCar(CarSpecifications specifications)
         {
             ClearCar();
@@ -34,7 +35,7 @@ namespace Monobehaviours.GameManagement
         {
             Engine carEngine = SetEngineType(specifications);
 
-            currentCar.GetComponent<CarMonobehaviour>().Car = new Car(specifications, carEngine);
+            currentCar.GetComponent<CarContainer>().Car = new Car(specifications, carEngine);
             currentCar.GetComponent<CarBuyableMonoBehaviour>().CarBuyable = new CarBuyable(specifications);
         }
 
@@ -44,14 +45,19 @@ namespace Monobehaviours.GameManagement
             {
                 case EngineType.Diesel:
                     return new EngineDiesel(specifications, new Diesel());
+
                 case EngineType.Petrol:
                     return new EnginePetrol(specifications, new Petrol());
+
                 case EngineType.Electricity:
                     return new EngineElectricity(specifications, new Electricity());
+
                 case EngineType.Hybrid:
                     return new EngineHybrid(specifications, new Petrol(), new Electricity());
+
                 case EngineType.Gas:
                     return new EngineGas(specifications, new Gas());
+
                 default:
                     return new EnginePetrol(specifications, new Petrol());
             }
