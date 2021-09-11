@@ -22,4 +22,6 @@ MonoBehaviour:
   ReleaseYear: 1988
   Weight: 1600
   SittingPlaces: 2
+  FuelTankCapacity: 60
+  IsBuyable: 1
   Prefab: {fileID: 8908288426541414933, guid: b58a349f2b3dc1d44b483d9fccb00b0f, type: 3}

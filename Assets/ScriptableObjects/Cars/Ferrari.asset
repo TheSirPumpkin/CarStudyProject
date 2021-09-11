@@ -22,4 +22,6 @@ MonoBehaviour:
   ReleaseYear: 2018
   Weight: 900
   SittingPlaces: 1
+  FuelTankCapacity: 150
+  IsBuyable: 0
   Prefab: {fileID: 7821824164921034739, guid: d07f66d7299fc714dba3b992ff43f480, type: 3}

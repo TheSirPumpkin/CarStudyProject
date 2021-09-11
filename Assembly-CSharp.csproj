@@ -76,6 +76,10 @@
     <Compile Include="Assets\Scripts\FuelTypes\Petrol.cs" />
     <Compile Include="Assets\Scripts\Interafaces\IVehicle.cs" />
     <Compile Include="Assets\Scripts\CarBuyable.cs" />
+    <Compile Include="Assets\Scripts\EngineFactory.cs" />
+    <Compile Include="Assets\Scripts\IFactory.cs" />
+    <Compile Include="Assets\Scripts\IEngine.cs" />
+    <Compile Include="Assets\Scripts\ProjectConstants\ProjectConstants.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

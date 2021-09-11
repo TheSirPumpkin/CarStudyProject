@@ -1,4 +1,5 @@
-﻿using CarEvents;
+﻿using CarComponents;
+using CarEvents;
 using Scriptables;
 using UnityEngine;
 
@@ -27,6 +28,11 @@ namespace Monobehaviours.GameManagement
             currentCar.GetComponent<CarContainer>().Car = new Car(specifications);
 
             currentCar.transform.parent = CarParent;
+
+            if (specifications.IsBuyable)
+            {
+                currentCar.AddComponent<CarBuyable>();
+            }
 
             return currentCar;
         }

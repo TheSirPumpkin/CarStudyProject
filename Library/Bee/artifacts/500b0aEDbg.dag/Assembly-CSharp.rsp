@@ -312,6 +312,7 @@
 "Assets/Scripts/Car.cs"
 "Assets/Scripts/CarBuyable.cs"
 "Assets/Scripts/Engine.cs"
+"Assets/Scripts/EngineFactory.cs"
 "Assets/Scripts/EngineTypes/EngineDiesel.cs"
 "Assets/Scripts/EngineTypes/EngineElectricity.cs"
 "Assets/Scripts/EngineTypes/EngineGas.cs"
@@ -324,6 +325,8 @@
 "Assets/Scripts/FuelTypes/Gas.cs"
 "Assets/Scripts/FuelTypes/Petrol.cs"
 "Assets/Scripts/Helpers/SimpleRotate.cs"
+"Assets/Scripts/IEngine.cs"
+"Assets/Scripts/IFactory.cs"
 "Assets/Scripts/Interafaces/IByable.cs"
 "Assets/Scripts/Interafaces/IFuel.cs"
 "Assets/Scripts/Interafaces/IVehicle.cs"
@@ -331,6 +334,7 @@
 "Assets/Scripts/Monobehaviours/CarCreateButton.cs"
 "Assets/Scripts/Monobehaviours/GameManagement/CarFabric.cs"
 "Assets/Scripts/PlayerCar.cs"
+"Assets/Scripts/ProjectConstants/ProjectConstants.cs"
 "Assets/Scripts/Scriptables/CarSpecifications.cs"
 -langversion:8.0
 

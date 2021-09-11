@@ -5,25 +5,25 @@ namespace EngineTypes
 {
     public abstract class Engine : IEngine //все контракты вынести в интерфейс
     {
-        public abstract IFuel[] Fuels { get; set; } //это должно быть свойством в наследниках, а здесь только абстрактно объявить
-        public float Power; //мощность двигателя просто так не меняется, так что это должно быть свойство
-        public float FuelTankCapacity; // количество топлива не относится к характеристикам двигателя, это должно быть в отдельной переменной в машине,
-                                       // а сюда можешь просто инжектить ссылку на компонент который лежит в машине
+        public abstract IFuel[] Fuels { get; set; } 
+        public float Power { get; set; }
 
+        /// <summary>
+        /// CarSpecifications is not replaced by EnginePower directly to provide posibility of adding additional params to engine using CarSpecifications
+        /// </summary>
         public Engine(CarSpecifications carSpecifications, params IFuel[] fuels)
         {
-            FuelTankCapacity = carSpecifications.FuelTankCapactiy;
             Power = carSpecifications.EnginePower;
             Fuels = fuels;
         }
         /// <summary>
         /// Engine startup
         /// </summary>
-        public abstract void StartEngine();//в чем отличие Run и Start?
+        public abstract void StartEngine();
         /// <summary>
         /// Engine workflow
         /// </summary>
-        public abstract void RunEngine();//в чем отличие Run и Start?
+        public abstract void RunEngine();
 
         public abstract void StopEngine();
 

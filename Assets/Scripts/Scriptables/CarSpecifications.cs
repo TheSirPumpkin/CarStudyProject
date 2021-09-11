@@ -27,6 +27,10 @@ namespace Scriptables
 
         public int SittingPlaces;
 
+        public float FuelTankCapacity;
+
+        public bool IsBuyable;
+
         public GameObject Prefab;
     }
 }
