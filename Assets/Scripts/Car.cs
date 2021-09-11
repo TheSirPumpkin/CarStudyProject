@@ -1,5 +1,6 @@
 ﻿using CarInterfaces;
 using EngineTypes;
+using FuelTypes;
 using Scriptables;
 using System;
 using UnityEngine;
@@ -32,15 +33,34 @@ public class Car : IVehicle, IBuyable //интерфейс "покупаемый
         ReleaseYear = specifications.ReleaseYear;
         Weight = specifications.Weight;
         SittingPlaces = specifications.SittingPlaces;
-        Engine = EngineFactory.GetEngine(specifications.EngineType); //двигатель должен получаться с фабрики
+        Engine = EngineFactory.GetEngine(/*specifications.EngineType*/specifications); //двигатель должен получаться с фабрики
         Type = SetCarType();
     }
 
     public class EngineFactory : IFactory<IEngine> //примерно то как должна выглядеть фабрика, только нужно перенести все в отдельный класс
     {
-        public static Engine GetEngine(EngineType specificationsEngineType)
+        public static Engine GetEngine(/*EngineType specificationsEngineType*/CarSpecifications specifications)
         {
-            throw new NotImplementedException();
+            switch (specifications.EngineType)
+            {
+                case EngineType.Diesel:
+                    return new EngineDiesel(specifications, new Diesel());
+
+                case EngineType.Petrol:
+                    return new EnginePetrol(specifications, new Petrol());
+
+                case EngineType.Electricity:
+                    return new EngineElectricity(specifications, new Electricity());
+
+                case EngineType.Hybrid:
+                    return new EngineHybrid(specifications, new Petrol(), new Electricity());
+
+                case EngineType.Gas:
+                    return new EngineGas(specifications, new Gas());
+
+                default:
+                    return new EnginePetrol(specifications, new Petrol());
+            }
         }
     }
 

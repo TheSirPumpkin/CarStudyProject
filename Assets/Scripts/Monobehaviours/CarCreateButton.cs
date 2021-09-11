@@ -7,6 +7,7 @@ public class CarCreateButton : MonoBehaviour
 {
     public CarSpecifications Specifications;
     public Text ButtonName;
+    public PlayerCar PlayerCar;
 
     private Button CreateButton;
 
@@ -31,6 +32,10 @@ public class CarCreateButton : MonoBehaviour
 
     private void CreateCar()
     {
-        EventManager.Events.InvokeCarCreateEvent(Specifications);
+        if (PlayerCar.CurrentPlayerCar != null)
+        {
+            Destroy(PlayerCar.CurrentPlayerCar);
+        }
+        PlayerCar.CurrentPlayerCar = EventManager.Events.InvokeCarCreateEvent(Specifications);
     }
 }
