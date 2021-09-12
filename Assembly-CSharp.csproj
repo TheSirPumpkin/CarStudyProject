@@ -62,13 +62,15 @@
     <Compile Include="Assets\Scripts\Scriptables\CarSpecifications.cs" />
     <Compile Include="Assets\Scripts\EngineTypes\EngineGas.cs" />
     <Compile Include="Assets\Scripts\EngineTypes\EngineDiesel.cs" />
-    <Compile Include="Assets\Scripts\GameBootstrap.cs" />
+    <Compile Include="Assets\Scripts\Interafaces\ILoadable.cs" />
+    <Compile Include="Assets\Scripts\Monobehaviours\GameBootstrap.cs" />
     <Compile Include="Assets\Scripts\EngineTypes\EnginePetrol.cs" />
     <Compile Include="Assets\Scripts\Events\EventManager.cs" />
     <Compile Include="Assets\Scripts\Monobehaviours\GameManagement\CarFactory.cs" />
     <Compile Include="Assets\Scripts\Enums\CarEnums.cs" />
     <Compile Include="Assets\Scripts\Monobehaviours\CarCreateButton.cs" />
     <Compile Include="Assets\Scripts\Helpers\SimpleRotate.cs" />
+    <Compile Include="Assets\Scripts\SaveLoadData.cs" />
     <Compile Include="Assets\Scripts\Interafaces\IShop.cs" />
     <Compile Include="Assets\Scripts\Interafaces\IByable.cs" />
     <Compile Include="Assets\Scripts\Interafaces\IFactory.cs" />
@@ -83,11 +85,9 @@
     <Compile Include="Assets\Scripts\FuelTypes\Diesel.cs" />
     <Compile Include="Assets\Scripts\FuelTypes\Petrol.cs" />
     <Compile Include="Assets\Scripts\Interafaces\IVehicle.cs" />
+    <Compile Include="Assets\Scripts\Interafaces\ISaveable.cs" />
     <Compile Include="Assets\Scripts\Monobehaviours\Shop.cs" />
     <Compile Include="Assets\Scripts\Monobehaviours\CarBuyable.cs" />
-    <Compile Include="Assets\Scripts\SaveLoadData.cs" />
-    <Compile Include="Assets\Scripts\Interafaces\ILoadable.cs" />
-    <Compile Include="Assets\Scripts\Interafaces\ISaveable.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

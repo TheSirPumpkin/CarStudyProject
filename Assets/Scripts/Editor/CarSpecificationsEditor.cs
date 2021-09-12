@@ -5,7 +5,6 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-
 namespace Editor
 {
     [CustomEditor(typeof(CarSpecifications))]
