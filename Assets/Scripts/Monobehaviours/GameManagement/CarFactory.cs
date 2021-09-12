@@ -1,5 +1,6 @@
 ﻿using CarComponents;
 using CarEvents;
+using GameManagement;
 using Interfaces;
 using Scriptables;
 using UnityEngine;
@@ -34,7 +35,11 @@ namespace Monobehaviours.GameManagement
             {
                 currentCar.AddComponent<CarBuyable>();
                 currentCar.GetComponent<CarBuyable>().Id = specifications.Id;
-                //currentCar.GetComponent<CarBuyable>().Bought = SaveData.IsOpened(specifications.Id);
+
+                if (SaveLoadData.BoughtItemsId.Contains(specifications.Id))
+                {
+                    currentCar.GetComponent<CarBuyable>().Bought = true;
+                }
                 currentCar.GetComponent<CarBuyable>().Cost = specifications.Cost;
             }
 

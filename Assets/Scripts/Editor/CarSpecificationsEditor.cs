@@ -26,7 +26,10 @@ namespace Editor
         public void Generate()
         {
             var carSpecifications = (CarSpecifications)target;
-            carSpecifications.Id = $"{Guid.NewGuid().ToString()}";
+            if (carSpecifications.Id == "")
+            {
+                carSpecifications.Id = $"{Guid.NewGuid().ToString()}";
+            }
 
             if (!Application.isPlaying)
             {
