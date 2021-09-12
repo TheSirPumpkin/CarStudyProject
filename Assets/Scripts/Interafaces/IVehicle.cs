@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CarInterfaces
+namespace Interfaces
 {
     public interface IVehicle
     {

@@ -53,6 +53,8 @@
     <UnityVersion>2021.1.14f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\EngineFactory.cs" />
+    <Compile Include="Assets\Scripts\ProjectConstants\ProjectConstants.cs" />
     <Compile Include="Assets\Scripts\Car.cs" />
     <Compile Include="Assets\Scripts\EngineTypes\EngineHybrid.cs" />
     <Compile Include="Assets\Scripts\EngineTypes\EngineElectricity.cs" />
@@ -61,25 +63,27 @@
     <Compile Include="Assets\Scripts\EngineTypes\EngineDiesel.cs" />
     <Compile Include="Assets\Scripts\EngineTypes\EnginePetrol.cs" />
     <Compile Include="Assets\Scripts\Events\EventManager.cs" />
+    <Compile Include="Assets\Scripts\Monobehaviours\GameManagement\CarFactory.cs" />
     <Compile Include="Assets\Scripts\Enums\CarEnums.cs" />
     <Compile Include="Assets\Scripts\Monobehaviours\CarCreateButton.cs" />
     <Compile Include="Assets\Scripts\Helpers\SimpleRotate.cs" />
-    <Compile Include="Assets\Scripts\Monobehaviours\GameManagement\CarFabric.cs" />
     <Compile Include="Assets\Scripts\Interafaces\IByable.cs" />
+    <Compile Include="Assets\Scripts\Interafaces\IFactory.cs" />
     <Compile Include="Assets\Scripts\Monobehaviours\CarContainer.cs" />
     <Compile Include="Assets\Scripts\FuelTypes\Gas.cs" />
+    <Compile Include="Assets\Scripts\Interafaces\IEngine.cs" />
     <Compile Include="Assets\Scripts\Engine.cs" />
     <Compile Include="Assets\Scripts\FuelTypes\Electricity.cs" />
-    <Compile Include="Assets\Scripts\PlayerCar.cs" />
+    <Compile Include="Assets\Scripts\Monobehaviours\PlayerCar.cs" />
     <Compile Include="Assets\Scripts\Interafaces\IFuel.cs" />
     <Compile Include="Assets\Scripts\FuelTypes\Diesel.cs" />
     <Compile Include="Assets\Scripts\FuelTypes\Petrol.cs" />
     <Compile Include="Assets\Scripts\Interafaces\IVehicle.cs" />
-    <Compile Include="Assets\Scripts\CarBuyable.cs" />
-    <Compile Include="Assets\Scripts\EngineFactory.cs" />
-    <Compile Include="Assets\Scripts\IFactory.cs" />
-    <Compile Include="Assets\Scripts\IEngine.cs" />
-    <Compile Include="Assets\Scripts\ProjectConstants\ProjectConstants.cs" />
+    <Compile Include="Assets\Scripts\Monobehaviours\CarBuyable.cs" />
+    <Compile Include="Assets\Scripts\Monobehaviours\Shop.cs" />
+    <Compile Include="Assets\Scripts\Interafaces\IShop.cs" />
+    <Compile Include="Assets\Scripts\Monobehaviours\Customer.cs" />
+    <Compile Include="Assets\Scripts\Interafaces\ICustomer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

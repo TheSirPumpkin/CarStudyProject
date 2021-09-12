@@ -7,6 +7,8 @@ namespace Scriptables
     [CreateAssetMenu(fileName = "CarSpecifications", menuName = "CarData/CarSpecifications")]
     public class CarSpecifications : ScriptableObject
     {
+        public string Id;
+
         public CarEquipment Equipment;
 
         public CarBrand Brand;

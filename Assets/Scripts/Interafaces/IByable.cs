@@ -1,9 +1,9 @@
-﻿namespace CarInterfaces
+﻿namespace Interfaces
 {
     public interface IBuyable
     {
+        string Id { get; set; }
         float Cost { get; set; }
-
-        void Buy(float money);// transfer to shop class But(Customer :ICustomer c, Ibuyable)
+        bool Bought { get; set; }
     }
 }

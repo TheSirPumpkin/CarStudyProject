@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1f7c808eaddf1c4883ffc10523a627d, type: 3}
   m_Name: Ferrari
   m_EditorClassIdentifier: 
+  Id: b043b9dc-b06d-47c2-97ac-27a5ee26661f
   Equipment: 1
   Brand: 0
   Drive: 2

@@ -1,41 +1,48 @@
 ﻿using CarEvents;
+using Interfaces;
 using Scriptables;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CarCreateButton : MonoBehaviour
+namespace Monobehaviours
 {
-    public CarSpecifications Specifications;
-    public Text ButtonName;
-    public PlayerCar PlayerCar;
-
-    private Button CreateButton;
-
-    private void OnEnable()
+    public class CarCreateButton : MonoBehaviour
     {
-        if (CreateButton == null)
+        public CarSpecifications Specifications;
+        public Text ButtonName;
+        public PlayerCar PlayerCar;
+        public Shop Shop;
+
+        private Button CreateButton;
+
+        private void OnEnable()
         {
-            CreateButton = GetComponent<Button>();
+            if (CreateButton == null)
+            {
+                CreateButton = GetComponent<Button>();
+            }
+            CreateButton.onClick.AddListener(CreateCar);
         }
-        CreateButton.onClick.AddListener(CreateCar);
-    }
 
-    private void OnDisable()
-    {
-        CreateButton.onClick.RemoveAllListeners();
-    }
-
-    private void Start()
-    {
-        ButtonName.text = $"{Specifications.Brand}";
-    }
-
-    private void CreateCar()
-    {
-        if (PlayerCar.CurrentPlayerCar != null)
+        private void OnDisable()
         {
-            Destroy(PlayerCar.CurrentPlayerCar);
+            CreateButton.onClick.RemoveAllListeners();
         }
-        PlayerCar.CurrentPlayerCar = EventManager.Events.InvokeCarCreateEvent(Specifications);
+
+        private void Start()
+        {
+            ButtonName.text = $"{Specifications.Brand}";
+        }
+
+        private void CreateCar()
+        {
+            if (PlayerCar.CurrentPlayerCar != null)
+            {
+                Destroy(PlayerCar.CurrentPlayerCar);
+            }
+            PlayerCar.CurrentPlayerCar = EventManager.Events.InvokeCarCreateEvent(Specifications);
+            Shop.Buyable = PlayerCar.CurrentPlayerCar.GetComponent<IBuyable>();
+            Shop.Customer = PlayerCar.GetComponent<ICustomer>();
+        }
     }
 }

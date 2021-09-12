@@ -1,4 +1,4 @@
-﻿using CarInterfaces;
+﻿using Interfaces;
 using Constants;
 using EngineTypes;
 using GameManagement;
@@ -12,6 +12,7 @@ namespace CarComponents
     [Serializable]
     public class Car : IVehicle // IBuyable removed, to use it as a component
     {
+        public string Id { get; private set; }
         public Engine Engine { get; private set; }
         public int ReleaseYear { get; private set; }
         public bool EngineStarted { get; private set; }
@@ -30,6 +31,7 @@ namespace CarComponents
 
         public Car(CarSpecifications specifications)
         {
+            Id = specifications.Id;
             equipment = specifications.Equipment;
             Brand = specifications.Brand;
             drive = specifications.Drive;
@@ -91,11 +93,6 @@ namespace CarComponents
 
         public void Stop()
         {
-        }
-        public float Cost { get; set; }
-        public void Buy(float money)
-        {
-            throw new NotImplementedException();
         }
     }
 }

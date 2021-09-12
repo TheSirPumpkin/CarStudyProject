@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4726899068690823610}
-  - component: {fileID: 4726899068690823613}
+  - component: {fileID: 1626758637}
   m_Layer: 0
   m_Name: CarCreator
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4726899068690823613
+--- !u!114 &1626758637
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,7 +40,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4726899068690823612}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 960993bc6ed67d448bea8447a5d9b1fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 157ee27b21bec3d499a8c8233556ca46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnPosition: {x: 0, y: 0, z: 0}
+  SpawnPosition: {x: 0, y: 1, z: 0}
+  CarParent: {fileID: 0}

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1f7c808eaddf1c4883ffc10523a627d, type: 3}
   m_Name: BMW
   m_EditorClassIdentifier: 
+  Id: 8ea259b0-0122-4fb4-ac04-bbf5391355ea
   Equipment: 0
   Brand: 4
   Drive: 0

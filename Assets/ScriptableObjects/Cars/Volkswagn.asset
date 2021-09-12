@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1f7c808eaddf1c4883ffc10523a627d, type: 3}
   m_Name: Volkswagn
   m_EditorClassIdentifier: 
+  Id: b43087cf-02ac-49ae-a1d2-bb58572794ad
   Equipment: 0
   Brand: 5
   Drive: 1

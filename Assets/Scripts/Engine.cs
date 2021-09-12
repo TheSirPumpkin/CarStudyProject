@@ -1,9 +1,10 @@
 ﻿using System.Linq;
+using Interfaces;
 using Scriptables;
 
 namespace EngineTypes
 {
-    public abstract class Engine : IEngine //все контракты вынести в интерфейс
+    public abstract class Engine : IEngine 
     {
         public abstract IFuel[] Fuels { get; set; } 
         public float Power { get; set; }
