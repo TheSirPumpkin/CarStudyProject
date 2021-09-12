@@ -8,7 +8,7 @@ namespace GameManagement
 {
     public class EngineFactory : IFactory<IEngine>
     {
-        public static Engine GetEngine(CarSpecifications specifications)
+        public IEngine Create(CarSpecifications specifications)
         {
             switch (specifications.EngineType)
             {

@@ -31,6 +31,8 @@ namespace CarComponents
 
         public Car(CarSpecifications specifications)
         {
+            EngineFactory engineFactory = new EngineFactory();
+
             Id = specifications.Id;
             equipment = specifications.Equipment;
             Brand = specifications.Brand;
@@ -38,9 +40,11 @@ namespace CarComponents
             ReleaseYear = specifications.ReleaseYear;
             Weight = specifications.Weight;
             SittingPlaces = specifications.SittingPlaces;
-            Engine = EngineFactory.GetEngine(specifications);
+            Engine = (Engine)engineFactory.Create(specifications);
             Type = SetCarType();
             FuelTankCapacity = specifications.FuelTankCapacity;
+
+            Debug.Log("Engine.Power "+Engine.Power);
         }
 
         public void EngineStart()

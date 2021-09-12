@@ -1,4 +1,5 @@
-﻿using CarEvents;
+﻿using CarComponents;
+using CarEvents;
 using Interfaces;
 using Scriptables;
 using UnityEngine;
@@ -40,7 +41,11 @@ namespace Monobehaviours
             {
                 Destroy(PlayerCar.CurrentPlayerCar);
             }
-            PlayerCar.CurrentPlayerCar = EventManager.Events.InvokeCarCreateEvent(Specifications);
+
+            EventManager.Events.InvokeCarCreateEvent(Specifications);
+
+            PlayerCar.CurrentPlayerCar = FindObjectOfType<CarContainer>().gameObject;
+
             Shop.Buyable = PlayerCar.CurrentPlayerCar.GetComponent<IBuyable>();
             Shop.Customer = PlayerCar.GetComponent<ICustomer>();
         }

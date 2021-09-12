@@ -1,4 +1,5 @@
-﻿using Scriptables;
+﻿using Interfaces;
+using Scriptables;
 using UnityEngine;
 
 namespace CarEvents
@@ -8,11 +9,11 @@ namespace CarEvents
         private static EventManager instance;
         public static EventManager Events => instance ?? (instance = new EventManager());
 
-        public delegate GameObject CreateCar(CarSpecifications carSpecifications);
+        public delegate IVehicle CreateCar(CarSpecifications carSpecifications);
 
         public event CreateCar CarCreate;
 
-        public GameObject InvokeCarCreateEvent(CarSpecifications carSpecifications)
+        public IVehicle InvokeCarCreateEvent(CarSpecifications carSpecifications)
         {
           return CarCreate?.Invoke(carSpecifications);
         }

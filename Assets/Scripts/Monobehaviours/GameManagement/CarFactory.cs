@@ -15,19 +15,21 @@ namespace Monobehaviours.GameManagement
 
         private void OnEnable()
         {
-            EventManager.Events.CarCreate += CreateCar;
+            EventManager.Events.CarCreate += Create;
         }
 
         private void OnDestroy()
         {
-            EventManager.Events.CarCreate -= CreateCar;
+            EventManager.Events.CarCreate -= Create;
         }
 
-        public GameObject CreateCar(CarSpecifications specifications)
+        public IVehicle Create(CarSpecifications specifications)
         {
             GameObject currentCar = Instantiate(specifications.Prefab, SpawnPosition, Quaternion.identity);
 
-            currentCar.GetComponent<CarContainer>().Car = new Car(specifications);
+            IVehicle vehicle = new Car(specifications);
+
+            currentCar.GetComponent<CarContainer>().Car = (Car)vehicle;
 
             currentCar.transform.parent = CarParent;
 
@@ -43,7 +45,7 @@ namespace Monobehaviours.GameManagement
                 currentCar.GetComponent<CarBuyable>().Cost = specifications.Cost;
             }
 
-            return currentCar;
+            return vehicle;
         }
     }
 }
